@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cari-kata-fe",
+  "main": "src/app.html",
+  "compatibility_date": "2026-02-08",
+  "vars": {
+    "PUBLIC_API_BASE_URL": "https://cari-kata.kensvin28.workers.dev",
+    "PUBLIC_MAX_WORD_LENGTH": "120"
+  },
+}
