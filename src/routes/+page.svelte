@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { translations, type Language } from '$lib/i18n/translations';
-	import { PUBLIC_API_BASE_URL, PUBLIC_MAX_WORD_LENGTH } from '$env/static/public';
+	import { env } from '$env/dynamic/public';
 	import { isValidCharacters, isValidMapping } from '$lib/utils';
 
 	// State variables using Svelte 5 runes
@@ -13,7 +13,7 @@
 	let results = $state<string[]>([]);
 	let loading = $state(false);
 	let error = $state('');
-	let apiUrl = $state(PUBLIC_API_BASE_URL); // Update this to your API URL
+	let apiUrl = $state(env.PUBLIC_API_BASE_URL); // Update this to your API URL
 	let currentLang = $state<Language>('id');
 	const t = $derived(translations[currentLang]);
 	let isSearched = $state(false);
@@ -46,8 +46,8 @@
 		if (length) {
 			const numLength = Number(length);
 			if (!Number.isInteger(numLength)) throw new Error(t.errorInvalidNumber);
-			if (numLength < 1 || numLength > parseInt(PUBLIC_MAX_WORD_LENGTH))
-				throw new Error(t.errorInvalidLength.replace('{max}', PUBLIC_MAX_WORD_LENGTH));
+			if (numLength < 1 || numLength > parseInt(env.PUBLIC_MAX_WORD_LENGTH))
+				throw new Error(t.errorInvalidLength.replace('{max}', env.PUBLIC_MAX_WORD_LENGTH));
 		}
 	}
 
@@ -156,7 +156,7 @@
 						oninput={handleInput}
 						placeholder={t.lengthPlaceholder}
 						min="1"
-						max={PUBLIC_MAX_WORD_LENGTH}
+						max={env.PUBLIC_MAX_WORD_LENGTH}
 					/>
 				</div>
 
