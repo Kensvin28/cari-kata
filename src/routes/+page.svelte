@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { translations, type Language } from '$lib/i18n/translations';
 	import { env } from '$env/dynamic/public';
-	import { isValidCharacters, isValidMapping } from '$lib/utils';
+	import { isValidCharacters, isValidMapping, isValidUnderscoreMapping } from '$lib/utils';
 
 	// State variables using Svelte 5 runes
 	let prefix = $state('');
@@ -39,7 +39,7 @@
 			throw new Error(t.errorInvalidCharacters.replace('{input}', t.excluded));
 		}
 
-		if (fixed && !isValidMapping(fixed)) {
+		if (fixed && !(isValidMapping(fixed) || isValidUnderscoreMapping(fixed))) {
 			throw new Error(t.errorInvalidMapping.replace('{input}', t.fixed));
 		}
 
