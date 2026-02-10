@@ -66,7 +66,7 @@ export const translations = {
     errorInvalidNumber: "Panjang kata harus berupa angka yang valid",
     errorInvalidLength: "Panjang kata tidak boleh melebihi {max} huruf",
     errorInvalidCharacters: "Input {input} mengandung karakter yang tidak valid",
-    errorInvalidMapping: "Format posisi huruf tidak valid. Gunakan pasangan posisi:huruf, pisahkan dengan koma atau gunakan garis bawah untuk huruf yang tidak diketahui.",
+    errorInvalidMapping: "Format posisi huruf tidak valid. Gunakan format pasangan posisi:huruf, pisahkan dengan koma atau gunakan format garis bawah untuk huruf yang tidak diketahui.",
   }
 };
 
